@@ -23,10 +23,10 @@
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <form class="navbar-form navbar-left" role="search">
+              <form action = {{ URL::route('viewEntries') }} class="navbar-form navbar-left" role="search">
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search entries..." />
+                    <input type="text" class="form-control" name="q" placeholder="Search entries..." />
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="button">Go!</button>
                     </span>
