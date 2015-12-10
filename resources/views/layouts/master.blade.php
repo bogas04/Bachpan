@@ -33,7 +33,7 @@
                   </div>
                 </div>
               </form>
-              <li><a href="#">Add Entry</a></li>
+              <li><a href="entry/new">Add Entry</a></li>
               <li><a href="#">Settings</a></li>
               <li><a href="logout">Logout</a></li>
             </ul>
