@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
 use App\Entry;
+use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Auth\AuthController;
@@ -40,7 +41,10 @@ class HomepageController extends Controller {
     }
 
     public function viewEntry($id) {
-      return view('entry.view', [ 'entry' => Entry::findOrFail($id) ]);
+      $entry = Entry::findOrFail($id);
+      $entry->user = User::findOrFail($entry->user_id);
+
+      return view('entry.view', [ 'entry' => $entry ]);
     }
 
     public function newEntry() {
@@ -55,8 +59,13 @@ class HomepageController extends Controller {
       $entry->currency = $request->input('currency');
       $entry->audience = implode(', ', $request->input('audience'));
       $entry->location = $request->input('location');
+      $entry->user_id = Auth::user()->id;
       $entry->save();
       return redirect()->route('viewEntry', [ 'id' => $entry->id ]);
+    }
+
+    public function viewUser($id) {
+      return view('user.view', [ 'user' => User::findOrFail($id) ]);
     }
 
     public function login() {
