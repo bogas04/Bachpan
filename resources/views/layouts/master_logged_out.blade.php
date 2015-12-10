@@ -8,7 +8,7 @@
         <link href="/css/main.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-      <nav class="navbar navbar-inverse">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -23,7 +23,7 @@
         </div>
       </nav>
 
-      <div class="container">
+      <div class="container" style="margin-top: 70px">
           @yield('content')
       </div>
     </body>

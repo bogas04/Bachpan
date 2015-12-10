@@ -37,13 +37,13 @@
     <div class="col-md-6">
       Audience
       <div class="checkbox">
-        <label><input type="checkbox" name="audience" value="kids">Kids</label>
+        <label><input type="checkbox" name="audience[]" value="kids">Kids</label>
       </div>
       <div class="checkbox">
-        <label><input type="checkbox" name="audience" value="teens">Teens</label>
+        <label><input type="checkbox" name="audience[]" value="teens">Teens</label>
       </div>
       <div class="checkbox">
-        <label><input type="checkbox" name="audience" value="adults">Adults</label>
+        <label><input type="checkbox" name="audience[]" value="adults">Adults</label>
       </div>
     </div>
   </div>

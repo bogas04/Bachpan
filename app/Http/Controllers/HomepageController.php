@@ -23,7 +23,7 @@ class HomepageController extends Controller {
 
 
     public function viewEntries() {
-      return view('entry.viewAll', [ 'user' => Auth::user(), 'entries' => Entry::get() ]);
+      return view('entry.viewAll', [ 'user' => Auth::user(), 'entries' => Entry::orderBy('created_at', 'desc')->get() ]);
     }
 
     public function viewEntry($id) {
@@ -40,10 +40,9 @@ class HomepageController extends Controller {
       $entry->content = nl2br($request->input('content'));
       $entry->price = $request->input('price');
       $entry->currency = $request->input('currency');
-      $entry->audience = $request->input('audience');
+      $entry->audience = implode(',', $request->input('audience'));
       $entry->location = $request->input('location');
       $entry->save();
-
       return redirect()->route('viewEntry', [ 'id' => $entry->id ]);
     }
 
